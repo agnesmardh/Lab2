@@ -109,6 +109,7 @@ public interface GeometricalForm
      * @param dy move the form dy points down.
      * @throws IllegalPositionException if any coordinate becomes negative.
      */
+
     public void move( int dx, int dy )
             throws IllegalPositionException;
 
@@ -118,7 +119,9 @@ public interface GeometricalForm
      *
      * @return the computed perimeter.
      */
+
     public int getPerimeter();
+
 
     /**
      * Place the form on given coordinates.
@@ -132,6 +135,7 @@ public interface GeometricalForm
      * @param y Distance down from origo.
      * @throws <tt>IllegalPositionException</tt> if any coordinate is negative.
      */
+
     public void place( int x, int y )
             throws IllegalPositionException;
 
