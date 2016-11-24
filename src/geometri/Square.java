@@ -16,13 +16,11 @@ public class Square extends GeometricalObject {
      * @throws IllegalPositionException if values are negative
      */
     public Square(int x, int y, int side, Color c) throws IllegalPositionException {
+        super(x, y, c);
         if (x < 0 || y < 0 || side < 0) {
             throw new IllegalPositionException("Negative values");
         }
-        this.x = x;
-        this.y = y;
         this.side = side;
-        this.c = c;
         area = side * side;
         perimeter = 4 * side;
     }
@@ -35,10 +33,8 @@ public class Square extends GeometricalObject {
      * @param c    color of the square
      */
     public Square(GeometricalForm f, int side, Color c) {
-        this.x = f.getX();
-        this.y = f.getY();
+        super(f, c);
         this.side = side;
-        this.c = c;
         area = side * side;
         perimeter = 4 * side;
     }

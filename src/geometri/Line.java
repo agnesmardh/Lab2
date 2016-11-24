@@ -19,6 +19,7 @@ public class Line extends GeometricalObject {
      * @throws IllegalPositionException if the values are negative.
      */
     public Line(int x1, int y1, int x2, int y2, Color c) throws IllegalPositionException {
+        super(x1, y1, c);
         if (x1 < 0 || x2 < 0 || y1 < 0 || y2 < 0) {
             throw new IllegalPositionException("Negative values");
         }
@@ -37,7 +38,6 @@ public class Line extends GeometricalObject {
         if (x == x1 && y == y1 || x == x2 && y == y2) {
             isCorner = true;
         }
-        this.c = c;
         area = 0;
         perimeter = (int) Math.sqrt(Math.pow((x2 - x), 2) + Math.pow((y2 - y), 2));
     }
@@ -50,6 +50,7 @@ public class Line extends GeometricalObject {
      * @param c  The color of the line
      */
     public Line(GeometricalForm f1, GeometricalForm f2, Color c) {
+        super(f1, c);
         this.x = Math.min(f1.getX(), f2.getX());
         this.y = Math.min(f1.getY(), f2.getY());
         if (f2.getX() > f1.getX()) {
@@ -67,7 +68,6 @@ public class Line extends GeometricalObject {
             isCorner = true;
         }
 
-        this.c = c;
         area = 0;
         perimeter = (int) Math.sqrt(Math.pow((width), 2) + Math.pow((height), 2));
     }

@@ -54,18 +54,8 @@ public abstract class GeometricalObject implements GeometricalForm {
     }
 
     /**
-     * Sets the area of the object
-     *
-     * @param area the area of the object
-     */
-    public void setArea(int area) {
-        this.area = area;
-    }
-
-    /**
      * {@inheritDoc}
      */
-    //??
     public int getHeight() {
         return 0;
     }
@@ -80,7 +70,6 @@ public abstract class GeometricalObject implements GeometricalForm {
     /**
      * {@inheritDoc}
      */
-    //??
     public int getWidth() {
         return 0;
     }
@@ -97,6 +86,34 @@ public abstract class GeometricalObject implements GeometricalForm {
      */
     public int getY() {
         return y;
+    }
+
+
+    /**
+     * Constructor for geometrical forms (its subclasses)
+     *
+     * @param x start point, x direction
+     * @param y start point, y direction
+     * @param c color of the object
+     */
+    public GeometricalObject(int x, int y, Color c) {
+        this.x = x;
+        this.y = y;
+        this.c = c;
+    }
+
+    /**
+     *
+     * Constructor for geometrical forms (its subclasses)
+     *
+     * @param f start point
+     * @param c color of the object
+     */
+
+    public GeometricalObject(GeometricalForm f, Color c) {
+        this.x = f.getX();
+        this.y = f.getY();
+        this.c = c;
     }
 
     /**

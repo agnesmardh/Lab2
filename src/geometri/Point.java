@@ -14,12 +14,10 @@ public class Point extends GeometricalObject {
      * @throws IllegalPositionException
      */
     public Point(int x, int y, Color c) throws IllegalPositionException {
+        super(x, y, c);
         if (x < 0 || y < 0) {
             throw new IllegalPositionException("Negative values");
         }
-        this.x = x;
-        this.y = y;
-        this.c = c;
         area = 0;
         perimeter = 0;
     }
@@ -31,8 +29,7 @@ public class Point extends GeometricalObject {
      * @param c the color of the point
      */
     public Point(GeometricalForm f, Color c) {
-        this.x = f.getX();
-        this.y = f.getY();
+        super(f, c);
         area = 0;
         perimeter = 0;
     }

@@ -18,14 +18,12 @@ public class Oval extends GeometricalObject {
      * @throws IllegalPositionException if values are negative
      */
     public Oval(int x, int y, int width, int height, Color c) throws IllegalPositionException {
+        super(x, y, c);
         if (x < 0 || y < 0 || width < 0 || height < 0) {
             throw new IllegalPositionException("Negative values");
         }
-        this.x = x;
-        this.y = y;
         this.width = width;
         this.height = height;
-        this.c = c;
         area = (int) (Math.PI * width * height) / 4;
         perimeter = (int) (Math.PI * Math.sqrt((2 * Math.pow(width, 2) + (2 * Math.pow(height, 2)))));
     }
@@ -39,11 +37,9 @@ public class Oval extends GeometricalObject {
      * @param c      the color of the oval
      */
     public Oval(GeometricalForm f, int width, int height, Color c) {
-        this.x = f.getX();
-        this.y = f.getY();
+        super(f, c);
         this.width = width;
         this.height = height;
-        this.c = c;
         area = (int) (Math.PI * width * height) / 4;
         perimeter = (int) (Math.PI * Math.sqrt((2 * Math.pow(width, 2) + (2 * Math.pow(height, 2)))));
     }

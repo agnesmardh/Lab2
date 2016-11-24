@@ -18,14 +18,12 @@ public class Rectangle extends GeometricalObject {
      * @throws IllegalPositionException if values are negative
      */
     public Rectangle(int x, int y, int width, int height, Color c) throws IllegalPositionException {
+        super(x, y, c);
         if (x < 0 || y < 0 || width < 0 || height < 0) {
             throw new IllegalPositionException("Negative values");
         }
-        this.x = x;
-        this.y = y;
         this.width = width;
         this.height = height;
-        this.c = c;
         area = height * width;
         perimeter = 2 * height + 2 * width;
     }
@@ -39,11 +37,9 @@ public class Rectangle extends GeometricalObject {
      * @param c      the color of the rectangle
      */
     public Rectangle(GeometricalForm f, int width, int height, Color c) {
-        this.x = f.getX();
-        this.y = f.getY();
+        super(f, c);
         this.width = width;
         this.height = height;
-        this.c = c;
         area = height * width;
         perimeter = 2 * (height) + 2 * (width);
     }

@@ -8,37 +8,33 @@ public class Circle extends GeometricalObject {
     /**
      * Creates a circle
      *
-     * @param x start point, x direction
-     * @param y start point, y direction
+     * @param x        start point, x direction
+     * @param y        start point, y direction
      * @param diameter diameter of circle
-     * @param c color of circle
+     * @param c        color of circle
      * @throws IllegalPositionException if negative values
      */
     public Circle(int x, int y, int diameter, Color c) throws IllegalPositionException {
-        if(x < 0 || y < 0 || diameter < 0) {
+        super(x, y, c);
+        if (x < 0 || y < 0 || diameter < 0) {
             throw new IllegalPositionException("Negative values");
         }
-        this.x = x;
-        this.y = y;
         this.diameter = diameter;
-        this.c = c;
-        area = (int) (Math.PI * Math.pow((diameter/2), 2));
+        area = (int) (Math.PI * Math.pow((diameter / 2), 2));
         perimeter = (int) Math.PI * diameter;
     }
 
     /**
      * Creates a circle
      *
-     * @param f start point
+     * @param f        start point
      * @param diameter diameter of circle
-     * @param c color of circle
+     * @param c        color of circle
      */
     public Circle(GeometricalForm f, int diameter, Color c) {
-        this.x = f.getX();
-        this.y = f.getY();
+        super(f, c);
         this.diameter = diameter;
-        this.c = c;
-        area = (int) (Math.PI * Math.pow((diameter/2), 2));
+        area = (int) (Math.PI * Math.pow((diameter / 2), 2));
         perimeter = (int) Math.PI * diameter;
     }
 
@@ -54,12 +50,12 @@ public class Circle extends GeometricalObject {
 
     /**
      * {@inheritDoc}
-     *
      */
     public void fill(Graphics g) {
         g.setColor(c);
         g.fillOval(x, y, diameter, diameter);
     }
+
     /**
      * Indicates whether some other object is equal to this one.
      *
@@ -68,9 +64,9 @@ public class Circle extends GeometricalObject {
      */
     @Override
     public boolean equals(Object o) {
-        if(!(o instanceof Circle)) {
+        if (!(o instanceof Circle)) {
             return false;
-        } else if(this.diameter != ((Circle) o).diameter) {
+        } else if (this.diameter != ((Circle) o).diameter) {
             return false;
         }
         return true;
