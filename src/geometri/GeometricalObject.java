@@ -103,7 +103,7 @@ public abstract class GeometricalObject implements GeometricalForm {
      * {@inheritDoc}
      */
     public void move(int dx, int dy) throws IllegalPositionException {
-        if(dx < 0 || dy < 0) {
+        if (dx < 0 || dy < 0) {
             throw new IllegalPositionException("Negative values");
         }
         this.x = dx;
@@ -130,15 +130,15 @@ public abstract class GeometricalObject implements GeometricalForm {
      */
     @Override
     public int compareTo(GeometricalForm f) {
-        if(this.area != f.getArea()) {
-            if(this.area > f.getArea()) {
+        if (this.area != f.getArea()) {
+            if (this.area > f.getArea()) {
                 return 1;
             } else {
                 return -1;
             }
         } else {
-            if(this.perimeter != f.getPerimeter()) {
-                if(perimeter > f.getPerimeter()) {
+            if (this.perimeter != f.getPerimeter()) {
+                if (perimeter > f.getPerimeter()) {
                     return 1;
                 } else {
                     return -1;
@@ -164,8 +164,6 @@ public abstract class GeometricalObject implements GeometricalForm {
      * @return a hash code value for this object
      */
     @Override
-    public int hashCode() {
-        return 1;
-    }
+    public abstract int hashCode();
 
 }

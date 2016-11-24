@@ -14,7 +14,7 @@ public class Point extends GeometricalObject {
      * @throws IllegalPositionException
      */
     public Point(int x, int y, Color c) throws IllegalPositionException {
-        if(x < 0 || y < 0) {
+        if (x < 0 || y < 0) {
             throw new IllegalPositionException("Negative values");
         }
         this.x = x;
@@ -53,10 +53,18 @@ public class Point extends GeometricalObject {
      */
     @Override
     public boolean equals(Object o) {
-        if(!(o instanceof Point)) {
+        if (!(o instanceof Point)) {
             return false;
         }
         return true;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public int hashCode() {
+        return 11;
     }
 
 }

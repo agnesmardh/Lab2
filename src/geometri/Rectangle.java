@@ -10,15 +10,15 @@ public class Rectangle extends GeometricalObject {
     /**
      * Creates a rectangle
      *
-     * @param x starting point, x direction
-     * @param y starting point, y direction
-     * @param width width of the rectangle
+     * @param x      starting point, x direction
+     * @param y      starting point, y direction
+     * @param width  width of the rectangle
      * @param height height of the rectangle
-     * @param c the color of the rectangle
+     * @param c      the color of the rectangle
      * @throws IllegalPositionException if values are negative
      */
     public Rectangle(int x, int y, int width, int height, Color c) throws IllegalPositionException {
-        if(x < 0 || y < 0 || width < 0 || height < 0) {
+        if (x < 0 || y < 0 || width < 0 || height < 0) {
             throw new IllegalPositionException("Negative values");
         }
         this.x = x;
@@ -33,10 +33,10 @@ public class Rectangle extends GeometricalObject {
     /**
      * Creates a rectangle
      *
-     * @param f starting point
-     * @param width width of rectangle
+     * @param f      starting point
+     * @param width  width of rectangle
      * @param height height of rectangle
-     * @param c the color of the rectangle
+     * @param c      the color of the rectangle
      */
     public Rectangle(GeometricalForm f, int width, int height, Color c) {
         this.x = f.getX();
@@ -80,11 +80,20 @@ public class Rectangle extends GeometricalObject {
      */
     @Override
     public boolean equals(Object o) {
-        if(!(o instanceof Rectangle)) {
+        if (!(o instanceof Rectangle)) {
             return false;
-        } else if(this.width != ((Rectangle) o).getWidth() || this.height != ((Rectangle) o).getHeight()) {
+        } else if (this.width != ((Rectangle) o).getWidth() || this.height != ((Rectangle) o).getHeight()) {
             return false;
         }
         return true;
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public int hashCode() {
+        return 13 * width + height;
+    }
 }
+

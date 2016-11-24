@@ -9,14 +9,14 @@ public class Square extends GeometricalObject {
     /**
      * Creates a square
      *
-     * @param x starting point, x direction
-     * @param y starting point, y direction
+     * @param x    starting point, x direction
+     * @param y    starting point, y direction
      * @param side side of the square
-     * @param c color of the square
+     * @param c    color of the square
      * @throws IllegalPositionException if values are negative
      */
     public Square(int x, int y, int side, Color c) throws IllegalPositionException {
-        if(x < 0 || y < 0 || side < 0) {
+        if (x < 0 || y < 0 || side < 0) {
             throw new IllegalPositionException("Negative values");
         }
         this.x = x;
@@ -30,9 +30,9 @@ public class Square extends GeometricalObject {
     /**
      * Creates a square
      *
-     * @param f starting point
+     * @param f    starting point
      * @param side side of the square
-     * @param c color of the square
+     * @param c    color of the square
      */
     public Square(GeometricalForm f, int side, Color c) {
         this.x = f.getX();
@@ -68,11 +68,19 @@ public class Square extends GeometricalObject {
      */
     @Override
     public boolean equals(Object o) {
-        if(!(o instanceof Square)) {
+        if (!(o instanceof Square)) {
             return false;
-        } else if(this.side != ((Square) o).getSide()) {
+        } else if (this.side != ((Square) o).getSide()) {
             return false;
         }
         return true;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public int hashCode() {
+        return 17 * side;
     }
 }

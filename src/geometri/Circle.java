@@ -76,4 +76,12 @@ public class Circle extends GeometricalObject {
         return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public int hashCode() {
+        return 3 * diameter;
+    }
+
 }

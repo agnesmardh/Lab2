@@ -10,15 +10,15 @@ public class Oval extends GeometricalObject {
     /**
      * Creates an oval
      *
-     * @param x start value, x direction
-     * @param y start value, y direction
-     * @param width width of oval
+     * @param x      start value, x direction
+     * @param y      start value, y direction
+     * @param width  width of oval
      * @param height height of oval
-     * @param c The color of the oval
+     * @param c      The color of the oval
      * @throws IllegalPositionException if values are negative
      */
     public Oval(int x, int y, int width, int height, Color c) throws IllegalPositionException {
-        if(x < 0 || y < 0 || width < 0 || height < 0) {
+        if (x < 0 || y < 0 || width < 0 || height < 0) {
             throw new IllegalPositionException("Negative values");
         }
         this.x = x;
@@ -26,17 +26,17 @@ public class Oval extends GeometricalObject {
         this.width = width;
         this.height = height;
         this.c = c;
-        area = (int) (Math.PI * width * height)/4;
+        area = (int) (Math.PI * width * height) / 4;
         perimeter = (int) (Math.PI * Math.sqrt((2 * Math.pow(width, 2) + (2 * Math.pow(height, 2)))));
     }
 
     /**
      * Creates an oval
      *
-     * @param f starting point
-     * @param width width of the oval
+     * @param f      starting point
+     * @param width  width of the oval
      * @param height height of the oval
-     * @param c the color of the oval
+     * @param c      the color of the oval
      */
     public Oval(GeometricalForm f, int width, int height, Color c) {
         this.x = f.getX();
@@ -44,7 +44,7 @@ public class Oval extends GeometricalObject {
         this.width = width;
         this.height = height;
         this.c = c;
-        area = (int) (Math.PI * width * height)/4;
+        area = (int) (Math.PI * width * height) / 4;
         perimeter = (int) (Math.PI * Math.sqrt((2 * Math.pow(width, 2) + (2 * Math.pow(height, 2)))));
     }
 
@@ -80,12 +80,20 @@ public class Oval extends GeometricalObject {
      */
     @Override
     public boolean equals(Object o) {
-        if(!(o instanceof Oval)) {
+        if (!(o instanceof Oval)) {
             return false;
-        } else if(this.width != ((Oval) o).getWidth() || this.height != ((Oval) o).getHeight()) {
+        } else if (this.width != ((Oval) o).getWidth() || this.height != ((Oval) o).getHeight()) {
             return false;
         }
         return true;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public int hashCode() {
+        return 7 * width + height;
     }
 
 }

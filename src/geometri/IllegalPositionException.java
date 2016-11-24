@@ -19,6 +19,7 @@ public class IllegalPositionException
     /**
      * Construct a new<TT>Exception</TT> <i>with</i>
      * a detail message.
+     *
      * @param message The detail message .
      */
     public IllegalPositionException(String message) {
